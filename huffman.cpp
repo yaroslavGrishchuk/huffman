@@ -75,7 +75,7 @@ void huffman::encode(std::istream &fin, std::ostream &fout)
 
     char actual_code = 0;
     char bits_counter = 0;
-    const char numb_of_bits = 8;
+    char numb_of_bits = 8;
     char buffer_out[buf_size];
     size_t numb_of_codes = 0;
 
@@ -102,8 +102,8 @@ void huffman::encode(std::istream &fin, std::ostream &fout)
                 }
             }
         }
-        fout.write(buffer_out, numb_of_codes * sizeof(char));
     }
+    fout.write(buffer_out, numb_of_codes * sizeof(char));
 
     if (bits_counter)
     {
@@ -143,7 +143,7 @@ bool huffman::decode(std::istream &fin, std::ostream &fout)
     //std::vector<char> buffer_out;
     char buffer_out[buf_size];
     size_t ready_chars = 0;
-    const char numb_of_bits = 8;
+    char numb_of_bits = 8;
     Node* node = root.get();
 
     while(fin)
